@@ -1,0 +1,13 @@
+{
+  "name": "High contrast (colorblind)",
+  "base": "dark-daltonized",
+  "overrides": {
+    "userMessageBackground": "#5a7596",
+    "userMessageBackgroundHover": "#6c8aa8",
+    "composerSidebarBackground": "#2b3a4a",
+    "briefLabelYou": "#8ecbff",
+    "briefLabelClaude": "#ffc14d",
+    "subtle": "#7d8590",
+    "inactive": "#b0b8c2"
+  }
+}
