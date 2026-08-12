@@ -181,11 +181,11 @@ If it lands, this repo becomes unnecessary, which is the goal.
 
 ```
 themes/high-contrast-cb.json   the theme
-verify.py                      the validator, no dependencies
-setup-guide.html               step-through guide, self-contained, prints clean
-add-screenshots.sh             helper for regenerating the before/after shots
+verify.py                      the validator, stdlib only
 screenshots/                   before and after
 ```
+
+Four files and two screenshots. `verify.py` needs no dependencies and no install step.
 
 ## License
 
