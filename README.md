@@ -34,7 +34,26 @@ That is a luminance problem wearing a color problem's clothes, and it is why "sw
 
 ## Install
 
-Custom themes work today, though the mechanism is undocumented.
+**Start with your terminal's background color.** This is the step people skip, and it costs you about a third of the result. The theme is tuned for a near-black background. On a default Ghostty background you get 2.95:1 instead of 4.42:1, which is still 2.5x better than stock but not what this README advertises.
+
+If you use Ghostty:
+
+```
+background = #000000
+foreground = #e8eaed
+minimum-contrast = 2
+bold-is-bright = true
+```
+
+`minimum-contrast` forces foreground text below its threshold up to it, which catches dim output from other tools. Keep it at 2. Higher values start rewriting colors you chose deliberately. Note it does nothing for background-versus-background blocks, which is the actual bug here.
+
+If you would rather keep your background, that is fine, just measure what you actually get:
+
+```bash
+./verify.py --bg '#282c34'    # your terminal's real background
+```
+
+Then the theme itself. Custom themes work today, though the mechanism is undocumented.
 
 ```bash
 mkdir -p ~/.claude/themes
@@ -48,17 +67,6 @@ Set the theme in `~/.claude/settings.json`. The value is `custom:` plus the file
 ```
 
 Restart Claude Code. Themes are read at startup, so a running session will not pick up a new file.
-
-This theme assumes a near-black terminal background. If you use Ghostty:
-
-```
-background = #000000
-foreground = #e8eaed
-minimum-contrast = 2
-bold-is-bright = true
-```
-
-`minimum-contrast` forces foreground text below its threshold up to it, which catches dim output from other tools. Keep it at 2. Higher values start rewriting colors you chose deliberately. Note it does nothing for background-versus-background blocks, which is the actual bug here.
 
 ## Verify
 
