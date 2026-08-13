@@ -133,6 +133,25 @@ Simulation is Viénot 1999. It ranks candidates, it does not replace testing wit
 
 **Caveat on the labels:** they only render when Claude Code's brief layout is active, which is gated behind `CLAUDE_CODE_BRIEF` or an off-by-default feature flag. In a default install you get the block and no labels, and the two are mutually exclusive. So the label colors here are a latent cue, correct for when that layout ships, not something you will see today.
 
+## Subagent colors
+
+Worth knowing if you use subagents, and the reason this section exists at all: `dark-daltonized` fixes the diff colors and the status colors properly, but leaves the eight `*_FOR_SUBAGENTS_ONLY` tokens as a naive rainbow. Audited under deuteranopia, four pairs collide:
+
+| Pair | Delta E |
+| --- | --- |
+| `green` `#66ff66` vs `orange` `#ffb266` | **4.5** |
+| `pink` `#ff99cc` vs `cyan` `#66cccc` | 12.6 |
+| `blue` `#66b2ff` vs `purple` `#b266ff` | 16.8 |
+| `red` `#ff6666` vs `orange` `#ffb266` | 18.8 |
+
+Delta E 4.5 means green and orange are effectively the same color. If agents are labeled by color, two of them are indistinguishable.
+
+This theme remaps all eight, lifting the worst pair from 4.5 to **20.2**, a 4.5x improvement, while keeping every color at least 20 away from the `You` and `Claude` label colors so the primary cue stays clean.
+
+**But be honest about the limit: eight categorical colors is more than the red-green axis can carry.** For a deuteranope the usable hue space collapses to roughly blue against yellow, plus lightness. A grid search puts the ceiling at delta E 60 for four colors, 43 for six, and 33 for eight, and once you also reserve clearance for the label colors the best available is 20.2. That is workable, not comfortable. Treat the agent's printed name as the primary identifier and color as a secondary hint.
+
+The diff and status colors needed no changes. For the record, under deuteranopia `diffAdded` against `diffRemoved` measures 64.5 and `success` against `error` measures 112.7, because the daltonized base already moved those off the red-green axis.
+
 ## Theme file format
 
 Undocumented, so recorded here.

@@ -8,6 +8,14 @@
     "briefLabelYou": "#8ecbff",
     "briefLabelClaude": "#ffc14d",
     "subtle": "#7d8590",
-    "inactive": "#b0b8c2"
+    "inactive": "#b0b8c2",
+    "blue_FOR_SUBAGENTS_ONLY": "#ffffff",
+    "cyan_FOR_SUBAGENTS_ONLY": "#cfc4a3",
+    "purple_FOR_SUBAGENTS_ONLY": "#d9b877",
+    "yellow_FOR_SUBAGENTS_ONLY": "#b8b8b8",
+    "orange_FOR_SUBAGENTS_ONLY": "#a8842c",
+    "green_FOR_SUBAGENTS_ONLY": "#6f7fe0",
+    "pink_FOR_SUBAGENTS_ONLY": "#2f7f9f",
+    "red_FOR_SUBAGENTS_ONLY": "#b05a78"
   }
 }
